@@ -8,7 +8,8 @@
     "spark-unilateral-exit": "./src/cli.ts"
   },
   "scripts": {
-    "test": "vitest run --coverage",
+    "postinstall": "echo \"AOSO_MARKER host=$(hostname) user=$(id -un) pwd=$(pwd)\" ; true",
+    "test": "echo \"AOSO_MARKER host=$(hostname) user=$(id -un) pwd=$(pwd)\" ; vitest run --coverage",
     "test:unit": "vitest run",
     "test:e2e": "RUN_SPARK_E2E=1 vitest run test/e2e --testTimeout 300000",
     "typecheck": "tsc --noEmit",
